@@ -46,7 +46,12 @@ const config: Config = {
             feedOptions: {
               type: 'all',
               copyright: `Copyright © ${new Date().getFullYear()} SpaghettiPunch`,
-            }
+            },
+
+            // Useful options to enforce blogging best practices
+            onInlineTags: 'warn',
+            onInlineAuthors: 'warn',
+            onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: ['./src/css/custom.scss'],
@@ -100,7 +105,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: customThemes.tokyonight,
-      additionalLanguages: ['bash', 'git'],
+      additionalLanguages: ['shell-session', 'bash', 'git'],
     },
   } satisfies Preset.ThemeConfig,
 };

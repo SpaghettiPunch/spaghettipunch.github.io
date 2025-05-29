@@ -1,5 +1,5 @@
 ---
-title: Rewriting Git History with Git-Crypt
+title: Guide to Retroactive Git-Crypt
 # description: Rewriting git history with git-crypt
 slug: git-crypt-history-rewrite
 authors: h3mul
@@ -30,11 +30,11 @@ Git offers a mechanism to split [Staging and Working](https://git-scm.com/about/
 </figcaption>
 </figure>
 
-In technical terms, filters can be any command into which file content can be piped. Filters are defined in git config, invoked for matching files in `.gitattributes`
+In technical terms, filters can be any command into which file content can be piped. Filters are defined in git config and invoked for matching files in `.gitattributes`.
 
- As a simple example from the [git manual](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Attributes), we could set a global filter called **indent** and invoke it on `*.c` files:
+As a simple example from the [git manual](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Attributes), we could set a global filter called **indent** and invoke it on `*.c` files:
 
-```shell
+```shell-session
 git config --global filter.indent.smudge cat
 git config --global filter.indent.clean indent
 ```
