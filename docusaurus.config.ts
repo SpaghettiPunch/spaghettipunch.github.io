@@ -1,4 +1,5 @@
 import {themes as prismThemes} from 'prism-react-renderer';
+import * as customThemes from './src/themes/prism'
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
@@ -98,7 +99,8 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: customThemes.tokyonight,
+      additionalLanguages: ['bash', 'git'],
     },
   } satisfies Preset.ThemeConfig,
 };
