@@ -25,6 +25,8 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
+  --ifm-color-content: rgb(209, 215, 224);
+  --ifm-color-content-secondary: var(--ifm-color-content);
   --ifm-color-primary: #bb9af7;
   --ifm-color-primary-dark: #7c3aed;
   --ifm-color-primary-darker: #5c21ba;
@@ -37,13 +39,24 @@
   --ifm-background-color: #1b1e2d;
   --ifm-navbar-background-color: #24283b;
 
+  --ifm-color-warning-dark: #ff9e64;
+  --ifm-color-warning-contrast-background:#8a5739;
+
+  --ifm-color-info-dark: #7dcfff;
+  --ifm-color-info-contrast-background: #284455;
+
   --ifm-color-success-dark: #41c0b0;
-  --ifm-color-success-contrast-background: #1a4744;
+  --ifm-color-success-contrast-background: #1a5551;
   .alert--success {
-    --ifm-alert-background-color-highlight: #1a5551;
+    --ifm-alert-background-color-highlight: #2c6960;
   }
 
   --code-block-border: 0.1rem solid rgba(204, 172, 255, 0.281);
+  --terminal-command-output-color: rgb(116, 126, 168);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .navbar {
@@ -106,4 +119,27 @@ code {
 
 div.columns-2 {
   column-count: 2
+}
+
+.center-text {
+  text-align: center;
+}
+
+pre:has(.code-block-terminal-command) {
+  span.token-line.code-block-terminal-command {
+    span.token:first-child::before {
+      content: '$';
+      padding: 0 5px;
+      color: #ff757f;
+    }
+  }
+
+  span.code-block-terminal-command-multiline {
+    margin-left: 1em;
+  }
+
+  span.token-line:not(.code-block-terminal-command,.code-block-terminal-command-multiline) {
+    margin-left: 1em;
+    color: var(--terminal-command-output-color) !important;
+  }
 }

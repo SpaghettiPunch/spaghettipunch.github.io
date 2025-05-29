@@ -65,6 +65,7 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'Spaghetti Punch',
+      hideOnScroll: true,
       logo: {
         alt: 'Spaghetti Punch Blog Logo',
         src: 'img/logo.svg',
@@ -105,7 +106,23 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: customThemes.tokyonight,
-      additionalLanguages: ['shell-session', 'bash', 'git'],
+      additionalLanguages: ['shell-session', 'bash', 'git', 'ini'],
+      magicComments: [
+          // Remember to extend the default highlight class name as well!
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-block-terminal-command',
+            line: 'terminal-command',
+          },
+          {
+            className: 'code-block-terminal-command-multiline',
+            line: 'terminal-command-multiline',
+          },
+        ],
     },
   } satisfies Preset.ThemeConfig,
 };

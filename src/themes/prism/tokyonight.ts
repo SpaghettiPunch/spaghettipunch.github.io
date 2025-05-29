@@ -12,7 +12,6 @@ var theme: PrismTheme = {
     {
       "types": [
         "comment",
-        "string"
       ],
       "style": {
         "fontStyle": "italic"
@@ -48,7 +47,8 @@ var theme: PrismTheme = {
     {
       "types": [
         "symbol",
-        "attr-name"
+        "attr-name",
+        "string"
       ],
       "style": {
         "color": "rgb(158, 206, 106)"
