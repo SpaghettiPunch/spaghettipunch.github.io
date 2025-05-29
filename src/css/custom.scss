@@ -15,18 +15,6 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-
-  // brand-specific colors
-  --electron-color-light: #9feaf9;
-  --electron-color-mid: #028399;
-  --electron-color-dark: #1b1c26;
-  --electron-color-secondary-light: #ff6e6e;
-  --electron-color-secondary-mid: #e3112d;
-
-  // custom vars
-  --electron-heading: var(--electron-color-mid);
-  --electron-inline-code: var(--electron-color-secondary-mid);
-  --ifm-navbar-item-padding-horizontal: 8px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -39,42 +27,17 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-
-  // custom vars
-  --electron-heading: var(--ifm-color-primary-lightest);
-  --electron-inline-code: var(--electron-color-secondary-light);
-  --api-history-added: var(--ifm-color-success-darker);
-  --api-history-deprecated: var(--ifm-color-danger-darkest);
 }
 
 .navbar {
-  &--dark {
-    --ifm-navbar-background-color: var(--electron-color-dark);
-    --ifm-navbar-link-color: var(--electron-color-light);
-  }
-
-  &__inner {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
   &__link {
     font-weight: var(--ifm-font-weight-normal);
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
 
-    &:hover {
-      color: var(--ifm-color-primary);
-    }
-
     &--active {
-      color: var(--electron-color-light);
       border-bottom-color: var(--ifm-link-color);
     }
-  }
-
-  .menu__link--active {
-    color: var(--electron-color-light);
   }
 }
 
