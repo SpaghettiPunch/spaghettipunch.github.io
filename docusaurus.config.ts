@@ -29,6 +29,7 @@ const config: Config = {
 
   plugins: [
     'docusaurus-plugin-sass',
+    'docusaurus-plugin-goatcounter',
   ],
   presets: [
     [
@@ -72,6 +73,10 @@ const config: Config = {
       reactionsEnabled: "1",
       darkTheme: "catppuccin_macchiato",
       lightTheme: "catppuccin_latte",
+    },
+
+    goatcounter: {
+      code: 'spaghettipunch',
     },
 
     colorMode: {
