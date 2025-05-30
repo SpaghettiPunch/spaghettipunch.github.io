@@ -1,5 +1,5 @@
 import {themes as prismThemes} from 'prism-react-renderer';
-import * as customThemes from './src/themes/prism'
+import * as customThemes from './src/theme/prism'
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
@@ -62,6 +62,18 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/spaghettipunch-logo.svg',
+
+    giscus: {
+      id: "comments",
+      repo: 'spaghettipunch/spaghettipunch.github.io',
+      repoId: "R_kgDOOy5hzg",
+      category: "Giscus",
+      categoryId: "DIC_kwDOOy5hzs4Cq0hX",
+      reactionsEnabled: "1",
+      darkTheme: "catppuccin_macchiato",
+      lightTheme: "catppuccin_latte",
+    },
+
     colorMode: {
       respectPrefersColorScheme: true,
       defaultMode: 'dark',
