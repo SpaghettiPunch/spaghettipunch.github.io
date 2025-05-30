@@ -148,3 +148,7 @@ pre:has(.code-block-terminal-command) {
     color: var(--terminal-command-output-color) !important;
   }
 }
+
+figcaption {
+  font-size: 0.9em;
+}
