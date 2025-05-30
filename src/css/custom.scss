@@ -15,9 +15,6 @@
   --ifm-color-primary-lighter: #8349df;
   --ifm-color-primary-lightest: #996ae5;
   --ifm-code-font-size: 95%;
-  --ifm-navbar-background-color: #fff;
-  --ifm-navbar-height: 85px;
-  --ifm-navbar-shadow: none;
   --ifm-divider: #e2e2e3;
   --ifm-footer-link-color: #464649;
   --ifm-code-background: rgba(240, 234, 220, 0.8);
@@ -57,6 +54,10 @@
   .alert--success {
     --ifm-alert-background-color-highlight: #00bfa627;
   }
+}
+
+[data-theme='light'] .navbar__logo img {
+  filter: invert(1);
 }
 
 html {
