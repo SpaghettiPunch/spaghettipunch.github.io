@@ -68,7 +68,7 @@ const config: Config = {
       hideOnScroll: true,
       logo: {
         alt: 'Spaghetti Punch Blog Logo',
-        src: 'img/logo.svg',
+        src: 'img/spaghettipunch-logo.svg',
       },
       items: [
         {to: '/blog', label: 'Blog', position: 'left'},
