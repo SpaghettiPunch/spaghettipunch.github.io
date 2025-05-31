@@ -130,8 +130,8 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: customThemes.tokyonight,
-      additionalLanguages: ['shell-session', 'bash', 'git', 'ini'],
+      darkTheme: customThemes.blank,
+      additionalLanguages: ['bash', 'shell-session', 'git', 'ini'],
       magicComments: [
           // Remember to extend the default highlight class name as well!
           {

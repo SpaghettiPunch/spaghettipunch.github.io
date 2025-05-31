@@ -1,0 +1,78 @@
+
+// Custom prism token color mapping (tokyo night)
+:root {
+  --prism-background-color: #24283b;
+  --prism-foreground-color: #a9b1d6;
+}
+
+pre.prism-code {
+  .token, .plain {
+    color: var(--prism-foreground-color);
+  }
+  .comment {
+    font-style: italic;
+  } 
+  .keyword, .operator {
+    color: rgb(137, 221, 255);
+  }
+  .punctuation {
+    color: rgb(95, 105, 150);
+  }
+  .builtin, .number, .constant {
+    color: rgb(255, 158, 100);
+  }
+  .symbol, .attr-name, .string {
+    color: rgb(158, 206, 106);
+  }
+  .function {
+    color: rgb(42, 195, 222);
+  }
+  .tag {
+    color: rgb(247, 118, 142);
+  }
+  .variable {
+    color: rgb(224, 175, 104);
+  }
+  .char {
+    color: rgb(187, 154, 247);
+  }
+  .property {
+    color: rgb(154, 189, 245);
+  }
+  .inserted {
+    color: rgb(68, 157, 171);
+  }
+  .deleted {
+    color: rgb(145, 76, 84);
+  }
+  .changed {
+    color: rgb(97, 131, 187);
+  }
+
+  &.language-shell {
+    .function, .parameter {
+      color: var(--prism-foreground-color);
+    }
+  }
+}
+
+// Custom treatment of code blocks
+
+pre:has(.code-block-terminal-command) {
+  span.token-line.code-block-terminal-command {
+    span.token:first-child::before {
+      content: '$';
+      padding: 0 5px;
+      color: #ff757f;
+    }
+  }
+
+  .token-line.code-block-terminal-command-multiline {
+    margin-left: 1em;
+  }
+
+  .token-line:not(.code-block-terminal-command,.code-block-terminal-command-multiline) .token {
+    margin-left: 1em;
+    color: var(--terminal-command-output-color) !important;
+  }
+}

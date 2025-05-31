@@ -28,7 +28,7 @@ If you are in the same boat, and have a good enough reason to seek a way to eith
 
 <Tabs>
   <TabItem value="encrypt" label="Encrypt a Cleantext Repo" default>
-```shell-session
+```shell
 # terminal-command
 export KEY=/tmp/git-crypt.key
 # terminal-command
@@ -59,7 +59,7 @@ git filter-branch --tree-filter \
 ```
   </TabItem>
   <TabItem value="decrypt" label="Decrypt an Encrypted Repo">
-```shell-session
+```shell
 # terminal-command
 export KEY=/tmp/git-crypt.key
 # terminal-command
@@ -129,7 +129,7 @@ In technical terms, filters can be any command into which file content can be pi
 
 As a simple example from the [git manual](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Attributes), we could set a global filter called **indent** and invoke it on `*.c` files:
 
-```shell-session
+```shell
 # terminal-command
 git config --global filter.indent.smudge cat
 # terminal-command
@@ -165,17 +165,14 @@ When unlocked, git-crypt adds filters `git-crypt smudge` and `git-crypt clean`, 
 Lets replicate this behavior with git-crypt locked - we will need it for rewriting history manually
 
 ```shell
-# terminal-command
-export KEY=/tmp/git-crypt.key
-# terminal-command
-git-crypt export-key $KEY
-# terminal-command
-git-crypt lock
+$ export KEY=/tmp/git-crypt.key
+$ git-crypt export-key $KEY
+$ git-crypt lock
 ```
 
 Now, the `git-crypt` filter definition is gone, and files are no longer decrypted:
 
-```shell-session
+```shell
 # terminal-command
 git config -l | grep git-crypt
 # Empty - no filters
@@ -186,7 +183,7 @@ bat text/test-text-file_small.txt
 
 But we can still decrypt it by manually invoking the smudge filter:
 
-```shell-session
+```shell
 # terminal-command
 git-crypt smudge --key-file $KEY < text/test-text-file_small.txt
 Lorem ipsum dolor sit amet, consectetur adipiscing elit...
@@ -196,7 +193,7 @@ _Note that we needed to supply our key manually - by default the filter looks fo
 
 Nice! Now, we can decrypt the git-crypt files in-place all at once by matching them against the git attributes:
 
-```shell-session
+```shell
 # terminal-command
 git ls-files | xargs git check-attr filter | \
 # terminal-command-multiline
@@ -215,14 +212,14 @@ Lets take an unencrypted repository and rewrite history as if it always was encr
 
 We will use a simple test repo as an example:
 
-```shell-session
+```shell
 # terminal-command
 git clone https://github.com/SpaghettiPunch/git-test-files
 ```
 
 Init git-crypt as usual, and save the key:
 
-```shell-session
+```shell
 # terminal-command
 export KEY=/tmp/git-crypt.key
 # terminal-command
@@ -251,7 +248,7 @@ git-crypt status
 
 Now we edit our history to reflect our desired git-crypt attribute setup (in this simple case, only in the root commit):
 
-```shell-session
+```shell
 # terminal-command
 git add .
 # terminal-command
@@ -278,7 +275,7 @@ Add git-crypt filters for our desired files at this point in history:
 
 Note that git-crypt filters automatically pick up and modify the `*.txt` files now:
 
-```shell-session
+```shell
 # terminal-command
 git-crypt status text/
     not encrypted: text/.DS_Store
@@ -306,7 +303,7 @@ If we commit these files, they would be encrypted in the current commit, **but `
 
 Lock git-crypt to stop this behavior:
 
-```shell-session
+```shell
 # terminal-command
 git-crypt lock -f
 # terminal-command
@@ -355,7 +352,7 @@ We are forced to use the [slower](https://git-scm.com/docs/git-filter-branch) `-
 
 That’s it! We can use git-crypt as if it was enabled all along:
 
-```shell-session
+```shell
 # terminal-command
 git-crypt status text/
     not encrypted: text/.keep
@@ -367,7 +364,7 @@ git-crypt status text/
 bat text/test-text-file_small.txt
     [bat warning]: Binary content from file 'text/test-text-file_small.txt' will not be printed to the terminal
 # terminal-command
-git-crypt unlock /tmp/git-crypt-test.key
+git-crypt unlock $KEY
 # terminal-command
 cat text/test-text-file_small.txt
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida felis...
@@ -391,7 +388,7 @@ We begin with the git-crypt enabled and unlocked repo from the previous section.
 
 Once again, we need to lock git-crypt to stop it from affecting our files and make sure our key is available outside the repo:
 
-```shell-session
+```shell
 # terminal-command
 git-crypt export-key $KEY
 # terminal-command
@@ -437,7 +434,7 @@ git filter-branch --tree-filter \
 
 Don’t forget to clean up:
 
-```shell-session
+```shell
 # terminal-command
 rm -r .git/git-crypt
 # terminal-command
@@ -446,7 +443,7 @@ rm $KEY
 
 Our repo history is free of encrypted files and git-crypt settings again!
 
-```shell-session
+```shell
 # terminal-command
 git show
     diff --git a/text/test-text-file_new.txt b/text/test-text-file_new.txt

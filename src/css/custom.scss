@@ -5,6 +5,8 @@
  */
 
 /* You can override the default Infima variables here. */
+@use 'prism';
+
 :root {
   --ifm-font-family-base: 'Manrope', sans-serif;
   --ifm-color-primary: #6d28d9;
@@ -56,6 +58,29 @@
   }
 }
 
+[class^="codeBlockTitle_"] {
+  border-bottom: var(--code-block-border);
+}
+
+.theme-code-block, code:not(.theme-code-block code) {
+  border: var(--code-block-border);
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+code {
+  vertical-align: inherit !important;
+}
+
+
 [data-theme='light'] .navbar__logo img {
   filter: invert(1);
 }
@@ -82,29 +107,6 @@ html {
   }
 }
 
-code {
-  vertical-align: inherit !important;
-}
-
-[class^="codeBlockTitle_"] {
-  border-bottom: var(--code-block-border);
-}
-
-.theme-code-block, code:not(.theme-code-block code) {
-  border: var(--code-block-border);
-}
-
-.docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
-}
-
-[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
 /* Add icon for github instead of label */
 .header-github-link:hover {
   opacity: 0.6;
@@ -128,25 +130,6 @@ div.columns-2 {
 
 .center-text {
   text-align: center;
-}
-
-pre:has(.code-block-terminal-command) {
-  span.token-line.code-block-terminal-command {
-    span.token:first-child::before {
-      content: '$';
-      padding: 0 5px;
-      color: #ff757f;
-    }
-  }
-
-  span.code-block-terminal-command-multiline {
-    margin-left: 1em;
-  }
-
-  span.token-line:not(.code-block-terminal-command,.code-block-terminal-command-multiline) {
-    margin-left: 1em;
-    color: var(--terminal-command-output-color) !important;
-  }
 }
 
 figcaption {
