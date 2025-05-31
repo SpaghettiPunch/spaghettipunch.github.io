@@ -64,6 +64,10 @@ const config: Config = {
   themeConfig: {
     image: 'img/spaghettipunch-logo.svg',
 
+    metadata: [
+      {name: 'keywords', content: 'opensource, blog, tech, unreal, gamedev'},
+    ],
+
     giscus: {
       id: "comments",
       repo: 'spaghettipunch/spaghettipunch.github.io',
@@ -83,6 +87,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
       defaultMode: 'dark',
     },
+
     navbar: {
       title: 'Spaghetti Punch',
       hideOnScroll: true,
