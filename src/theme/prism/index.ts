@@ -1,1 +1,1 @@
-export { default as blank } from "./blank"
+export { default as tokyonight } from "./tokyonight"

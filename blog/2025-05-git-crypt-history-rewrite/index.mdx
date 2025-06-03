@@ -165,9 +165,12 @@ When unlocked, git-crypt adds filters `git-crypt smudge` and `git-crypt clean`, 
 Lets replicate this behavior with git-crypt locked - we will need it for rewriting history manually
 
 ```shell
-$ export KEY=/tmp/git-crypt.key
-$ git-crypt export-key $KEY
-$ git-crypt lock
+# terminal-command
+export KEY=/tmp/git-crypt.key
+# terminal-command
+git-crypt export-key $KEY
+# terminal-command
+git-crypt lock
 ```
 
 Now, the `git-crypt` filter definition is gone, and files are no longer decrypted:
@@ -178,7 +181,7 @@ git config -l | grep git-crypt
 # Empty - no filters
 # terminal-command
 bat text/test-text-file_small.txt
-[bat warning]: Binary content from file 'text/test-text-file_small.txt' will not be printed to the terminal
+[bat warning]: Binary content from file 'text/test-text-file_small.txt' will not be printed to the terminal ```
 ```
 
 But we can still decrypt it by manually invoking the smudge filter:
@@ -315,7 +318,7 @@ git status
 # Confirm our files are still unencrypted		        
 # terminal-command
 cat text/test-text-file_small.txt
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+Lorem ipsum dolor sit amet, consectetur adipiscing elit...
 
 # terminal-command
 git add . && git commit --amend --noedit
@@ -367,7 +370,7 @@ bat text/test-text-file_small.txt
 git-crypt unlock $KEY
 # terminal-command
 cat text/test-text-file_small.txt
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida felis...
+Lorem ipsum dolor sit amet, consectetur adipiscing elit...
 # terminal-command
 git show
     diff --git a/text/test-text-file_new.txt b/text/test-text-file_new.txt
@@ -462,3 +465,5 @@ git-crypt status text/
     not encrypted: text/test-text-file_new.txt
     not encrypted: text/test-text-file_small.txt
 ```
+
+---
