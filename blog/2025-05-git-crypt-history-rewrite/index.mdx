@@ -253,8 +253,6 @@ Now we edit our history to reflect our desired git-crypt attribute setup (in thi
 
 ```shell
 # terminal-command
-git add .
-# terminal-command
 git rebase -i --root
 ---
     edit 67ff5a7 Initial commit
@@ -383,6 +381,8 @@ git show
     +This is an edit in a later commit
 ```
 
+Note that using this method git-crypt also picked up the new file (`text/test-text-file_new.txt`), which was added at a commit after the root, as we desired
+
 ## Retroactive Decryption
 
 Now, lets undo all that work. We start with a repository that has been historically encrypted and want to remove all trace of git-crypt. To do this, we reverse the order of operations from [encryption](#retroactive-encryption): we decrypt all the files in all commits using git attribute matching first, and then clean up the attributes themselves.
@@ -424,6 +424,10 @@ Now that all the files are decrypted, we can clean up `.gitattributes` in a new 
 
 ```shell
 # terminal-command
+GIT_LFS_SKIP_SMUDGE=1 \
+# terminal-command-multiline
+FILTER_BRANCH_SQUELCH_WARNING=1 \
+# terminal-command-multiline
 git filter-branch --tree-filter \
 # terminal-command-multiline
   '([ -e .gitattributes ] && sed -i "/filter=git-crypt/d" .gitattributes || true) && \
