@@ -1,0 +1,19 @@
+{
+    "autodiscover": false,
+    "dryRun": null,
+    "printConfig": false,
+    "dependencyDashboardAutoclose": true,
+    "ignoreTests": true,
+    "platform": "github",
+    "ignorePaths": [ "node_modules/**" ],
+    "extends": [
+        "config:best-practices",
+        ":dependencyDashboard",
+        ":automergeMinor",
+        ":automergeDigest",
+        ":automergePatch",
+        ":automergePr",
+        ":disableRateLimiting",
+        ":npm"
+    ],
+}
