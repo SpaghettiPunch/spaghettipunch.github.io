@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Spaghetti Punch',
   tagline: 'Gamedev and Tech Blog',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -61,8 +61,31 @@ const config: Config = {
     ],
   ],
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/spaghettipunch-logo-light.svg',
+        type: "image/svg+xml",
+        sizes: '32x32',
+        media: '(prefers-color-scheme: light)',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/spaghettipunch-logo-dark.svg',
+        type: "image/svg+xml",
+        sizes: '32x32',
+        media: '(prefers-color-scheme: dark)',
+      },
+    },
+  ],
+
   themeConfig: {
-    image: 'img/spaghettipunch-logo.svg',
+    image: 'img/favicon.svg',
 
     metadata: [
       {name: 'keywords', content: 'opensource, blog, tech, unreal, gamedev'},
@@ -93,7 +116,7 @@ const config: Config = {
       hideOnScroll: true,
       logo: {
         alt: 'Spaghetti Punch Blog Logo',
-        src: 'img/spaghettipunch-logo.svg',
+        src: 'img/favicon.svg',
       },
       items: [
         {to: '/blog', label: 'Blog', position: 'left'},
