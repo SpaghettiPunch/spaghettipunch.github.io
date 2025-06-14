@@ -1,0 +1,16 @@
+{
+    "printConfig": false,
+    "dependencyDashboardAutoclose": true,
+    "ignoreTests": true,
+    "ignorePaths": [ "node_modules/**" ],
+    "extends": [
+        "config:best-practices",
+        ":dependencyDashboard",
+        ":automergeMinor",
+        ":automergeDigest",
+        ":automergePatch",
+        ":automergePr",
+        ":disableRateLimiting",
+        ":npm"
+    ],
+}

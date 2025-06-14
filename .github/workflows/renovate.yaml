@@ -1,0 +1,28 @@
+---
+name: "Renovate"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 3 0 * * *
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/renovate.yaml"
+      - ".github/renovate.json5"
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Renovate
+        uses: renovatebot/github-action@12f8ed8e6a936a00dc66b628d224488ac406b5e8 # v42.0.5
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+        with:
+          token: ${{ secrets.RENOVATE_TOKEN }}
+          configurationFile: .github/renovate.json5
