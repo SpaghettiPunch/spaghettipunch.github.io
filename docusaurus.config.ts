@@ -20,7 +20,9 @@ const config: Config = {
   projectName: 'spaghettipunch.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown:
+    hooks:
+      onBrokenMarkdownLinks: 'warn'
 
   i18n: {
     defaultLocale: 'en',
