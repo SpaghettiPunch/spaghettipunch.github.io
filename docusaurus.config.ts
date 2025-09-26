@@ -24,7 +24,7 @@ const config: Config = {
     hooks: {
       onBrokenMarkdownLinks: 'warn'
     }
-  }
+  },
 
   i18n: {
     defaultLocale: 'en',
